@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>anna's game library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header and navigation for the main sections -->
+  <header class="site-header">
+    <div class="brand">anna's game library</div>
+    <nav class="site-nav">
+      <button type="button" data-target="intro">Home</button>
+      <button type="button" data-target="about">About Me</button>
+      <button type="button" data-target="gallery">Gallery</button>
+    </nav>
+  </header>
+
+  <main class="page-content">
+    <!-- Introduction page -->
+    <section id="intro" class="panel active-panel">
+      <div class="card intro-card">
+        <p class="eyebrow">hello, i'm anna</p>
+        <h1>cozy game recommendations</h1>
+        <p>I share video game picks by mood, stakes, and ambience so friends and family can discover games they will enjoy.</p>
+        <p class="small">This website is beginner-friendly, mobile-ready, and easy to update.</p>
+      </div>
+    </section>
+
+    <!-- About me section -->
+    <section id="about" class="panel">
+      <div class="card">
+        <h2>about me</h2>
+        <p>I am a 9th grade student who loves video games, reading, graphic design, psychology, and coding.</p>
+
+        <div class="info-grid">
+          <div>
+            <h3>interests</h3>
+            <ul>
+              <li>video games</li>
+              <li>reading</li>
+              <li>graphic design</li>
+              <li>psychology</li>
+              <li>coding</li>
+            </ul>
+          </div>
+          <div>
+            <h3>projects & activities</h3>
+            <ul>
+              <li>piano lessons for RCM exams</li>
+              <li>learning C++ and USACO</li>
+              <li>book review journal</li>
+              <li>self-study Jungian psychology</li>
+              <li>youtube channel for my interests</li>
+            </ul>
+          </div>
+          <div>
+            <h3>proud of</h3>
+            <p>my skill for aesthetic organization and structure</p>
+          </div>
+          <div>
+            <h3>next to learn</h3>
+            <p>game development</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery section with category selection -->
+    <section id="gallery" class="panel">
+      <div class="card">
+        <div class="section-header">
+          <div>
+            <h2>gallery</h2>
+            <p>Start with 'All' or choose a category based on stakes, ambience, or mood.</p>
+          </div>
+          <div id="categoryButtons" class="category-buttons"></div>
+        </div>
+
+        <p class="category-note" id="activeCategoryNote">Showing all games.</p>
+
+        <div id="galleryContent" class="gallery-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>built by anna — cozy, clear, low-key, pastel-ish style</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
