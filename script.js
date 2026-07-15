@@ -5,6 +5,7 @@ const allGames = [
     description: "The first 2 games in the Little Nightmares series, where you play as children stuck in a twisted world full of monsters, trying to escape.",
     labels: ["stormy night", "horror", "adventure", "puzzle", "high stakes"],
     cover: "Cover: little nightmares I and II",
+    image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/25271/nboxijj9ujz7ax4c/page_bg_raw.jpg?t=1775738129",
     gameplay: ["LN1 scene", "LN2 scene"]
   },
   {
@@ -133,7 +134,9 @@ function createGameCard(game) {
       ${game.labels.map((label) => `<span class="badge">${label}</span>`).join("")}
     </div>
     <div class="image-row">
-      <div class="image-placeholder cover-tile">${game.cover}</div>
+      <div class="image-placeholder cover-tile">
+        ${game.image ? `<img src="${game.image}" alt="${game.title} cover" class="game-image" />` : game.cover}
+      </div>
       <div class="image-placeholder gameplay-tile">${game.gameplay.join(" | ")}</div>
     </div>
   `;
