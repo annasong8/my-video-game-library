@@ -1,32 +1,32 @@
 /* Data for the gallery categories and games */
 const allGames = [
   {
-    title: "Stormy Night Runner",
-    description: "A moody game for rainy nights and late-hour decisions.",
-    labels: ["stormy night", "mood", "chill"],
-    cover: "Cover: rainy city chase",
-    gameplay: ["Neon street run", "Thunderstorm path"]
+    title: "Little Nightmares I and II",
+    description: "The first 2 games in the Little Nightmares series, where you play as children stuck in a twisted world full of monsters, trying to escape.",
+    labels: ["stormy night", "horror", "adventure", "puzzle", "high stakes"],
+    cover: "Cover: little nightmares I and II",
+    gameplay: ["LN1 scene", "LN2 scene"]
   },
   {
-    title: "High Stakes Heist",
-    description: "A high-energy challenge with strategy, timing, and tension.",
-    labels: ["high stakes", "strategy", "action"],
-    cover: "Cover: heist planning",
-    gameplay: ["Vault escape", "Stealth move"]
+    title: "Bugsnax",
+    description: "A whimsical game where you explore an island, collect the cute creatures on it, and befriend the residents there.",
+    labels: ["cozy", "collection", "low stakes", "adventure"],
+    cover: "Cover: Bugsnax",
+    gameplay: ["bugsnax collection", "residents"]
   },
   {
-    title: "Cozy Campfire Quest",
-    description: "A relaxing adventure that feels warm and story-driven.",
-    labels: ["cozy", "story", "adventure"],
-    cover: "Cover: campfire evening",
-    gameplay: ["Forest walk", "Character talk"]
+    title: "Omori",
+    description: "A game where you play as a reclusive teenage boy who explores a strange world and uncovers his traumatic past.",
+    labels: ["RPG", "psychological horror", "emotional", "medium stakes"],
+    cover: "Cover: Omori",
+    gameplay: ["battle scene", "story scene"]
   },
   {
-    title: "Puzzle Room Retreat",
-    description: "A calm puzzle game for thoughtful, low-key evenings.",
-    labels: ["ambience", "easygoing", "mindful"],
-    cover: "Cover: quiet study",
-    gameplay: ["Brain puzzle", "Soft music"]
+    title: "Cris Tales",
+    description: "A time-traveling role-playing game where you play as a young girl who can see the past, present, and future.",
+    labels: ["cozy", "RPG", "high stakes"],
+    cover: "Cover: CrisTales",
+    gameplay: ["battle scene", "story scene"]
   }
 ];
 
@@ -36,16 +36,16 @@ const galleryData = {
     title: "Based on difficulty / stakes",
     groups: [
       {
-        name: "Easy and relaxing",
-        games: [allGames[2], allGames[3]]
+        name: "Easy and low-stakes",
+        games: [allGames[1]]
       },
       {
         name: "Medium challenge",
-        games: [allGames[0]]
+        games: [allGames[2]]
       },
       {
-        name: "High tension",
-        games: [allGames[1]]
+        name: "High diffulty and stakes",
+        games: [allGames[0], allGames[3]]
       }
     ]
   },
@@ -54,11 +54,11 @@ const galleryData = {
     groups: [
       {
         name: "Cozy and warm",
-        games: [allGames[2], allGames[3]]
+        games: [allGames[1], allGames[3]]
       },
       {
-        name: "Dramatic and moody",
-        games: [allGames[0], allGames[1]]
+        name: "Dramatic and dark",
+        games: [allGames[0], allGames[2]]
       }
     ]
   },
@@ -66,15 +66,15 @@ const galleryData = {
     title: "Based on mood",
     groups: [
       {
-        name: "Relaxed reading night",
-        games: [allGames[2], allGames[3]]
+        name: "Reality- and time-bending",
+        games: [allGames[0], allGames[3]]
       },
       {
-        name: "Stormy night energy",
-        games: [allGames[0]]
+        name: "Emotional and introspective",
+        games: [allGames[2]]
       },
       {
-        name: "Challenge seeker",
+        name: "Fun and whimsical",
         games: [allGames[1]]
       }
     ]
