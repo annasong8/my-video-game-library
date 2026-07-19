@@ -230,6 +230,11 @@ p {
   margin-top: 1rem;
 }
 
+.image-row.double-stack {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
 .image-placeholder {
   min-height: 120px;
   border-radius: 16px;

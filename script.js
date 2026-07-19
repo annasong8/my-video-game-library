@@ -6,7 +6,10 @@ const allGames = [
     labels: ["stormy night", "horror", "adventure", "puzzle", "high stakes"],
     cover: "Cover: little nightmares I and II",
     image: "https://shared.akamai.steamstatic.com/store_item_assets/steam/bundles/25271/nboxijj9ujz7ax4c/page_bg_raw.jpg?t=1775738129",
-    gameplay: ["LN1 scene", "LN2 scene"]
+    gameplayImages: [
+      "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/8382105/ss_8100f5db18a37496396985b1aeedf308bc2a9f46.1920x1080.jpg?q=50&fit=crop&w=825&dpr=1.5",
+      "https://gamingbolt.com/wp-content/uploads/2019/08/little-nightmares-2-1.jpg"
+    ]
   },
   {
     title: "Bugsnax",
@@ -137,7 +140,13 @@ function createGameCard(game) {
       <div class="image-placeholder cover-tile">
         ${game.image ? `<img src="${game.image}" alt="${game.title} cover" class="game-image" />` : game.cover}
       </div>
-      <div class="image-placeholder gameplay-tile">${game.gameplay.join(" | ")}</div>
+      <div class="image-row double-stack">
+        ${game.gameplayImages ? game.gameplayImages.map((src) => `
+          <div class="image-placeholder gameplay-tile">
+            <img src="${src}" alt="${game.title} gameplay" class="game-image" />
+          </div>
+        `).join("") : `<div class="image-placeholder gameplay-tile">${game.gameplay.join(" | ")}</div>`}
+      </div>
     </div>
   `;
   return card;
