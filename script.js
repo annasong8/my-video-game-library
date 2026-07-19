@@ -27,7 +27,11 @@ const allGames = [
     description: "A game where you play as a reclusive teenage boy who explores a strange world and uncovers his traumatic past.",
     labels: ["RPG", "psychological horror", "emotional", "medium stakes"],
     cover: "Cover: Omori",
-    gameplay: ["battle scene", "story scene"]
+    image: "https://cdn.mobygames.com/covers/10784724-omori-playstation-4-front-cover.jpg",
+    gameplayImages: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi-0joMEfWDX16EfKVG8Ia7N6m7DWcUdSqU-Vkvw0eGk6UiJfyW6mZFi8&s=10",
+      "https://ip.truetrophies.com/remote/image.api.playstation.com/vulcan/ap/rnd/202206/1604/Ih52VPeCyFcxOZiG8CP46Qfv.jpg?width=900"
+    ]
   },
   {
     title: "Cris Tales",
