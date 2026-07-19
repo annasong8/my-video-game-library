@@ -52,15 +52,15 @@ const galleryData = {
     title: "Based on difficulty / stakes",
     groups: [
       {
-        name: "Easy and low-stakes",
+        name: "🟢 Easy and low-stakes",
         games: [allGames[1]]
       },
       {
-        name: "Medium challenge",
+        name: "🟡 Medium challenge",
         games: [allGames[2]]
       },
       {
-        name: "High difficulty and stakes",
+        name: "🔴 High difficulty and stakes",
         games: [allGames[0], allGames[3]]
       }
     ]
@@ -69,11 +69,11 @@ const galleryData = {
     title: "Based on ambience",
     groups: [
       {
-        name: "Cozy and warm",
+        name: "🧸 Cozy and warm",
         games: [allGames[1], allGames[3]]
       },
       {
-        name: "Dramatic and dark",
+        name: "🌙 Dramatic and dark",
         games: [allGames[0], allGames[2]]
       }
     ]
@@ -82,15 +82,15 @@ const galleryData = {
     title: "Based on mood",
     groups: [
       {
-        name: "Reality- and time-bending",
+        name: "🌪️ Reality- and time-bending",
         games: [allGames[0], allGames[3]]
       },
       {
-        name: "Emotional and introspective",
+        name: "🫶 Emotional and introspective",
         games: [allGames[2]]
       },
       {
-        name: "Fun and whimsical",
+        name: "✨ Fun and whimsical",
         games: [allGames[1]]
       }
     ]
