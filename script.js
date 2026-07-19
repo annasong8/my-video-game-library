@@ -60,7 +60,7 @@ const galleryData = {
         games: [allGames[2]]
       },
       {
-        name: "High diffulty and stakes",
+        name: "High difficulty and stakes",
         games: [allGames[0], allGames[3]]
       }
     ]
