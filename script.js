@@ -30,7 +30,7 @@ const allGames = [
     image: "https://cdn.mobygames.com/covers/10784724-omori-playstation-4-front-cover.jpg",
     gameplayImages: [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi-0joMEfWDX16EfKVG8Ia7N6m7DWcUdSqU-Vkvw0eGk6UiJfyW6mZFi8&s=10",
-      "https://ip.truetrophies.com/remote/image.api.playstation.com/vulcan/ap/rnd/202206/1604/Ih52VPeCyFcxOZiG8CP46Qfv.jpg?width=900"
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGD60BjFATRjSgsJIt5zvE-lkflsBccW5RenE6HSuitjdb6CZ82u0hIvk&s=10"
     ]
   },
   {
