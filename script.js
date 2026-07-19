@@ -16,7 +16,11 @@ const allGames = [
     description: "A whimsical game where you explore an island, collect the cute creatures on it, and befriend the residents there.",
     labels: ["cozy", "collection", "low stakes", "adventure"],
     cover: "Cover: Bugsnax",
-    gameplay: ["bugsnax collection", "residents"]
+    image: "https://m.media-amazon.com/images/M/MV5BMjI4ODg1ZWQtNjYxMi00NzBlLWFiM2QtMWY2NTMyZmUwMjkzXkEyXkFqcGc@._V1_.jpg",
+    gameplayImages: [
+      "https://techraptor.net/sites/default/files/styles/content_inline_desktop/public/images/BugsnaxShyworm.jpg?itok=gDZ_2YwT",
+      "https://media.wired.com/photos/625f40e9fde84d2a751f4daf/3:2/w_1920,c_limit/Bugsnax-Casual-Gamer-Games.png"
+    ]
   },
   {
     title: "Omori",
