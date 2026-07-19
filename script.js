@@ -71,7 +71,7 @@ const galleryData = {
         games: [allGames[2]]
       },
       {
-        name: "🔴 High difficulty and stakes",
+        name: "🔴 High stakes and difficulty",
         games: [allGames[0], allGames[3]]
       }
     ]
@@ -93,7 +93,7 @@ const galleryData = {
     title: "Based on mood",
     groups: [
       {
-        name: "🌌 Reality- and time-bending",
+        name: "🌌 Reality and time bending",
         games: [allGames[0], allGames[3]]
       },
       {
