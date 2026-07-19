@@ -72,7 +72,7 @@ const galleryData = {
       },
       {
         name: "🔴 High stakes and difficulty",
-        games: [allGames[0], allGames[3]]
+        games: [allGames[0], allGames[3], allGames[4]]
       }
     ]
   },
@@ -85,7 +85,7 @@ const galleryData = {
       },
       {
         name: "🌃 Dramatic and dark",
-        games: [allGames[0], allGames[2], allGames[3]]
+        games: [allGames[0], allGames[2], allGames[3], allGames[4]]
       }
     ]
   },
@@ -94,7 +94,7 @@ const galleryData = {
     groups: [
       {
         name: "🌌 Reality and time bending",
-        games: [allGames[0], allGames[3]]
+        games: [allGames[0], allGames[3], allGames[4]]
       },
       {
         name: "❤️‍🩹 Emotional and introspective",
