@@ -38,7 +38,11 @@ const allGames = [
     description: "A time-traveling role-playing game where you play as a young girl who can see the past, present, and future.",
     labels: ["cozy", "RPG", "high stakes"],
     cover: "Cover: CrisTales",
-    gameplay: ["battle scene", "story scene"]
+    image: "https://static.wikia.nocookie.net/cristales/images/b/b8/Cristalesposter.jpeg/revision/latest?cb=20200621143118",
+    gameplayImages: [
+      "https://i0.wp.com/noescapevg.com/wp-content/uploads/2021/02/F648326B-6E8A-4ED4-BE2B-1C9A5148144A.jpeg?fit=1200%2C675&ssl=1",
+      "https://cdn.wccftech.com/wp-content/uploads/2021/06/WCCFcristales5.jpg"
+    ]
   }
 ];
 
