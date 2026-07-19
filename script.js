@@ -85,7 +85,7 @@ const galleryData = {
       },
       {
         name: "🌃 Dramatic and dark",
-        games: [allGames[0], allGames[2]]
+        games: [allGames[0], allGames[2], allGames[3]]
       }
     ]
   },
