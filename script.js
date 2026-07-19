@@ -73,7 +73,7 @@ const galleryData = {
         games: [allGames[1], allGames[3]]
       },
       {
-        name: "� Dramatic and dark",
+        name: "🌃 Dramatic and dark",
         games: [allGames[0], allGames[2]]
       }
     ]
@@ -82,7 +82,7 @@ const galleryData = {
     title: "Based on mood",
     groups: [
       {
-        name: "� Reality- and time-bending",
+        name: "🌌 Reality- and time-bending",
         games: [allGames[0], allGames[3]]
       },
       {
