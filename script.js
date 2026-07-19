@@ -18,7 +18,7 @@ const allGames = [
     cover: "Cover: Bugsnax",
     image: "https://m.media-amazon.com/images/M/MV5BMjI4ODg1ZWQtNjYxMi00NzBlLWFiM2QtMWY2NTMyZmUwMjkzXkEyXkFqcGc@._V1_.jpg",
     gameplayImages: [
-      "https://techraptor.net/sites/default/files/styles/content_inline_desktop/public/images/BugsnaxShyworm.jpg?itok=gDZ_2YwT",
+      "https://oyster.ignimgs.com/mediawiki/apis.ign.com/bugsnax/0/0b/Bugsnax_Screenshot_2022.05.21_-_17.18.31.08.png?width=814&dpr=2&format=jpg&auto=webp&quality=80",
       "https://media.wired.com/photos/625f40e9fde84d2a751f4daf/3:2/w_1920,c_limit/Bugsnax-Casual-Gamer-Games.png"
     ]
   },
