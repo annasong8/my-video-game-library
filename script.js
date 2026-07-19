@@ -43,6 +43,17 @@ const allGames = [
       "https://i0.wp.com/noescapevg.com/wp-content/uploads/2021/02/F648326B-6E8A-4ED4-BE2B-1C9A5148144A.jpeg?fit=1200%2C675&ssl=1",
       "https://cdn.wccftech.com/wp-content/uploads/2021/06/WCCFcristales5.jpg"
     ]
+  },
+  {
+    title: "Final Fantasy 7 Remake & Rebirth",
+    description: "The first 2 games in the reimagined trilogy of the original famous JRPG, where you play as a mercenary who joins an organization to stop a megacorporation from draining the life of the planet, but the journey escalates into pursuing a dangerous superhuman.",
+    labels: ["high stakes", "RPG", "action"],
+    cover: "Cover: Final Fantasy 7 Remake & Rebirth",
+    image: "https://cdn11.bigcommerce.com/s-6rs11v9w2d/images/stencil/1280x1280/products/3054/16401/FFVII_RB_AG_US__55522.1709208257.jpg?c=1",
+    gameplayImages: [
+      "https://cdn.mos.cms.futurecdn.net/gyZZVNX2wjUs4FQXU5pffB.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIZqMxod6W8Hz6f2OT03OdJCInto4dKj7rd-p5IOwZ3e0UgoziGaOBe5Jg&s=10"
+    ]
   }
 ];
 
