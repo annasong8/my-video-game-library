@@ -100,7 +100,7 @@ button:focus {
 
 .eyebrow {
   margin: 0 0 0.5rem;
-  color: var(--accent-dark);
+  color: #4c3f51;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.8rem;
