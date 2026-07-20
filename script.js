@@ -60,7 +60,7 @@ const allGames = [
 const galleryData = {
   all: allGames,
   difficulty: {
-    title: "Based on difficulty / stakes",
+    title: "Based on how high the difficulty & stakes are",
     groups: [
       {
         name: "🟢 Easy and low-stakes",
@@ -77,7 +77,7 @@ const galleryData = {
     ]
   },
   ambience: {
-    title: "Based on ambience",
+    title: "Based on the ambience & vibe of the game",
     groups: [
       {
         name: "🧸 Cozy and warm",
@@ -94,7 +94,7 @@ const galleryData = {
     ]
   },
   mood: {
-    title: "Based on mood",
+    title: "Based on what mood you're feeling",
     groups: [
       {
         name: "🌌 Warping reality and time",
@@ -135,10 +135,10 @@ const galleryData = {
 
 const categories = [
   { id: "all", label: "All" },
-  { id: "difficulty", label: "Based on difficulty / stakes" },
-  { id: "ambience", label: "Based on the ambience and vibe of the game" },
-  { id: "mood", label: "Based on what mood you're feeling" },
-  { id: "genre", label: "Based on genre" }
+  { id: "difficulty", label: "Difficulty / stakes" },
+  { id: "ambience", label: "Ambience" },
+  { id: "mood", label: "Your mood" },
+  { id: "genre", label: "Genre" }
 ];
 
 const galleryContent = document.getElementById("galleryContent");
