@@ -85,7 +85,11 @@ const galleryData = {
       },
       {
         name: "🌃 Dramatic and dark",
-        games: [allGames[0], allGames[2], allGames[3], allGames[4]]
+        games: [allGames[0], allGames[2], allGames[4]]
+      },
+      {
+        name: "🌀 Surreal and mysterious",
+        games: [allGames[0], allGames[2]]
       }
     ]
   },
@@ -105,6 +109,27 @@ const galleryData = {
         games: [allGames[1]]
       }
     ]
+  },
+  genre: {
+    title: "Based on genre",
+    groups: [
+      {
+        name: "🕸️ Horror",
+        games: [allGames[0], allGames[2]]
+      },
+      {
+        name: "🎲 Role-playing (RPG)",
+        games: [allGames[2], allGames[3], allGames[4]]
+      },
+      {
+        name: "🧺 Collection-based",
+        games: [allGames[1]]
+      },
+      {
+        name: "🗺️ Adventure",
+        games: [allGames[0], allGames[1], allGames[2]]
+      }
+    ]
   }
 };
 
@@ -112,7 +137,8 @@ const categories = [
   { id: "all", label: "All" },
   { id: "difficulty", label: "Based on difficulty / stakes" },
   { id: "ambience", label: "Based on ambience" },
-  { id: "mood", label: "Based on mood" }
+  { id: "mood", label: "Based on mood" },
+  { id: "genre", label: "Based on genre" }
 ];
 
 const galleryContent = document.getElementById("galleryContent");
