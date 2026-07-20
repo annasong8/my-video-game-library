@@ -97,7 +97,7 @@ const galleryData = {
     title: "Based on mood",
     groups: [
       {
-        name: "🌌 Reality and time bending",
+        name: "🌌 Warping reality and time",
         games: [allGames[0], allGames[3], allGames[4]]
       },
       {
@@ -114,7 +114,7 @@ const galleryData = {
     title: "Based on genre",
     groups: [
       {
-        name: "🕸️ Horror",
+        name: "👻 Horror",
         games: [allGames[0], allGames[2]]
       },
       {
@@ -136,8 +136,8 @@ const galleryData = {
 const categories = [
   { id: "all", label: "All" },
   { id: "difficulty", label: "Based on difficulty / stakes" },
-  { id: "ambience", label: "Based on ambience" },
-  { id: "mood", label: "Based on mood" },
+  { id: "ambience", label: "Based on the ambience and vibe of the game" },
+  { id: "mood", label: "Based on what mood you're feeling" },
   { id: "genre", label: "Based on genre" }
 ];
 
