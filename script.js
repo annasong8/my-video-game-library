@@ -85,7 +85,7 @@ const galleryData = {
       },
       {
         name: "🌃 Dramatic and dark",
-        games: [allGames[0], allGames[2], allGames[4]]
+        games: [allGames[0], allGames[4]]
       },
       {
         name: "🌀 Surreal and mysterious",
@@ -212,12 +212,49 @@ function renderAllGames() {
   galleryContent.appendChild(list);
 }
 
+function createSectionId(groupName) {
+  return `group-${groupName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+}
+
 /* Show groups inside a selected category */
 function renderCategoryGroups(categoryData) {
   galleryContent.innerHTML = "";
+
+  const layout = document.createElement("div");
+  layout.className = "gallery-layout";
+
+  const sidebar = document.createElement("aside");
+  sidebar.className = "subcategory-sidebar";
+
+  const sidebarTitle = document.createElement("h4");
+  sidebarTitle.textContent = "Subcategories";
+  sidebar.appendChild(sidebarTitle);
+
+  const list = document.createElement("div");
+  list.className = "subcategory-list";
+
+  const content = document.createElement("div");
+  content.className = "category-content";
+
   categoryData.groups.forEach((group) => {
+    const sectionId = createSectionId(group.name);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "subcategory-button";
+    button.textContent = group.name;
+    button.addEventListener("click", () => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 110;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+    list.appendChild(button);
+
     const block = document.createElement("section");
     block.className = "category-block";
+    block.id = sectionId;
 
     const heading = document.createElement("h3");
     heading.textContent = group.name;
@@ -230,8 +267,13 @@ function renderCategoryGroups(categoryData) {
     });
 
     block.appendChild(grid);
-    galleryContent.appendChild(block);
+    content.appendChild(block);
   });
+
+  sidebar.appendChild(list);
+  layout.appendChild(sidebar);
+  layout.appendChild(content);
+  galleryContent.appendChild(layout);
 }
 
 /* Set up top navigation buttons */
