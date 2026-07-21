@@ -146,6 +146,11 @@ const categoryButtons = document.getElementById("categoryButtons");
 const activeCategoryNote = document.getElementById("activeCategoryNote");
 const navButtons = document.querySelectorAll(".site-nav button");
 const panels = document.querySelectorAll(".panel");
+const tryItForm = document.getElementById("tryItForm");
+const tryItInput = document.getElementById("tryItInput");
+const tryItResult = document.getElementById("tryItResult");
+const tryItButton = document.getElementById("tryItButton");
+const modelApiKey = "4042c5c0-84de-11f1-b00c-196a096e2eb379ed01f6-f2e2-4046-8452-c52bff1d210a";
 
 /* Render the category buttons for the gallery */
 function renderCategoryButtons() {
@@ -289,10 +294,77 @@ function setupNavigation() {
   });
 }
 
+/* Classify the user's mood using the machine learning model */
+async function classifyMood(text) {
+  const url = `https://machinelearningforkids.co.uk/api/scratch/${modelApiKey}/classify?data=${encodeURIComponent(text)}`;
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("The classifier is unavailable at the moment.");
+  }
+
+  const data = await response.json();
+  return data[0];
+}
+
+/* Show the classifier result in the Try It section */
+function showTryItResult(label, confidence) {
+  const displayLabel = label?.toLowerCase?.() || "unknown";
+  const labelMap = {
+    chill: "Chill",
+    action: "Action",
+    brainy: "Brainy",
+    social: "Social",
+    spooky: "Spooky",
+    adventure: "Adventure"
+  };
+  const friendlyLabel = labelMap[displayLabel] || label || "Unknown";
+
+  tryItResult.innerHTML = `
+    <p class="result-title">You seem like you want:</p>
+    <div class="result-badge">${friendlyLabel}</div>
+    <p class="confidence">Confidence: ${confidence}%</p>
+    <p class="result-note">Try browsing the gallery for games that fit this mood.</p>
+  `;
+}
+
+/* Handle the Try It form submission */
+async function handleTryItSubmit(event) {
+  event.preventDefault();
+
+  const text = tryItInput.value.trim();
+  if (!text) {
+    tryItResult.innerHTML = '<p class="result-note">Type a few words about the mood you want.</p>';
+    return;
+  }
+
+  tryItButton.disabled = true;
+  tryItButton.textContent = "Checking...";
+  tryItResult.innerHTML = '<p class="result-note">Thinking...</p>';
+
+  try {
+    const match = await classifyMood(text);
+    showTryItResult(match.class_name, match.confidence);
+  } catch (error) {
+    tryItResult.innerHTML = `<p class="result-note">Sorry, I couldn’t classify that right now. ${error.message}</p>`;
+  } finally {
+    tryItButton.disabled = false;
+    tryItButton.textContent = "Classify";
+  }
+}
+
+/* Set up the Try It form */
+function setupTryItForm() {
+  if (tryItForm) {
+    tryItForm.addEventListener("submit", handleTryItSubmit);
+  }
+}
+
 /* Initialize the page */
 function init() {
   renderCategoryButtons();
   setupNavigation();
+  setupTryItForm();
   selectCategory("all");
 }
 

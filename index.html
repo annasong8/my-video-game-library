@@ -14,6 +14,7 @@
       <button type="button" data-target="intro">Home</button>
       <button type="button" data-target="about">About Me</button>
       <button type="button" data-target="gallery">Gallery</button>
+      <button type="button" data-target="try-it">Try It</button>
     </nav>
   </header>
 
@@ -91,12 +92,30 @@
         <div id="galleryContent" class="gallery-grid"></div>
       </div>
     </section>
+
+    <!-- Try It section using the machine learning model -->
+    <section id="try-it" class="panel">
+      <div class="card">
+        <h2>try it</h2>
+        <p>What are you feeling like playing right now?</p>
+
+        <form id="tryItForm" class="try-it-form">
+          <label class="sr-only" for="tryItInput">Describe the kind of game you want</label>
+          <textarea id="tryItInput" class="try-it-input" placeholder="Try: I want something cozy and low-pressure after a long day."></textarea>
+          <button type="submit" class="try-it-button" id="tryItButton">Classify</button>
+        </form>
+
+        <div id="tryItResult" class="try-it-result" aria-live="polite">
+          <p class="result-note">Type a few words about your mood and I’ll suggest a game category.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <p>built by anna</p>
   </footer>
 
-  <script src="script.js?v=20260720-1"></script>
+  <script src="script.js?v=20260721-1"></script>
 </body>
 </html>
