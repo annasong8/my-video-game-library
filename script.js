@@ -294,21 +294,56 @@ function setupNavigation() {
   });
 }
 
+/* Use a built-in fallback when the remote model is unavailable */
+function fallbackClassify(text) {
+  const lowerText = text.toLowerCase();
+  const rules = [
+    { label: "chill", keywords: ["chill", "calm", "cozy", "relax", "rest", "soft", "gentle", "lazy", "peaceful", "comfy", "slow", "sleepy", "unwind"] },
+    { label: "action", keywords: ["action", "fast", "intense", "battle", "fight", "combat", "adrenaline", "energy", "thrilling", "wild"] },
+    { label: "brainy", keywords: ["brainy", "puzzle", "strategy", "logic", "thinking", "solve", "mystery", "clever", "smart", "problem"] },
+    { label: "social", keywords: ["social", "friends", "party", "group", "multiplayer", "co-op", "team", "together", "chat", "fun"] },
+    { label: "spooky", keywords: ["spooky", "scary", "creepy", "horror", "haunted", "eerie", "dark", "spirit", "nightmare"] },
+    { label: "adventure", keywords: ["adventure", "explore", "quest", "journey", "discover", "world", "travel", "fantasy", "wander"] }
+  ];
+
+  const matches = rules
+    .map((rule) => ({
+      label: rule.label,
+      score: rule.keywords.reduce((count, keyword) => count + (lowerText.includes(keyword) ? 1 : 0), 0)
+    }))
+    .sort((a, b) => b.score - a.score);
+
+  const topMatch = matches[0];
+  return {
+    class_name: topMatch.label,
+    confidence: topMatch.score > 0 ? Math.min(95, 70 + topMatch.score * 8) : 65,
+    source: "fallback"
+  };
+}
+
 /* Classify the user's mood using the machine learning model */
 async function classifyMood(text) {
   const url = `https://machinelearningforkids.co.uk/api/scratch/${modelApiKey}/classify?data=${encodeURIComponent(text)}`;
-  const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error("The classifier is unavailable at the moment.");
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("The remote classifier is unavailable right now.");
+    }
+
+    const data = await response.json();
+    if (!data || !data[0]) {
+      throw new Error("The classifier returned no result.");
+    }
+
+    return { ...data[0], source: "model" };
+  } catch (error) {
+    return fallbackClassify(text);
   }
-
-  const data = await response.json();
-  return data[0];
 }
 
 /* Show the classifier result in the Try It section */
-function showTryItResult(label, confidence) {
+function showTryItResult(label, confidence, source) {
   const displayLabel = label?.toLowerCase?.() || "unknown";
   const labelMap = {
     chill: "Chill",
@@ -319,11 +354,15 @@ function showTryItResult(label, confidence) {
     adventure: "Adventure"
   };
   const friendlyLabel = labelMap[displayLabel] || label || "Unknown";
+  const notice = source === "fallback"
+    ? "The live model wasn’t available, so I used a quick built-in match instead."
+    : "";
 
   tryItResult.innerHTML = `
     <p class="result-title">You seem like you want:</p>
     <div class="result-badge">${friendlyLabel}</div>
     <p class="confidence">Confidence: ${confidence}%</p>
+    ${notice ? `<p class="result-note">${notice}</p>` : ""}
     <p class="result-note">Try browsing the gallery for games that fit this mood.</p>
   `;
 }
@@ -344,7 +383,7 @@ async function handleTryItSubmit(event) {
 
   try {
     const match = await classifyMood(text);
-    showTryItResult(match.class_name, match.confidence);
+    showTryItResult(match.class_name, match.confidence, match.source);
   } catch (error) {
     tryItResult.innerHTML = `<p class="result-note">Sorry, I couldn’t classify that right now. ${error.message}</p>`;
   } finally {
