@@ -98,6 +98,32 @@ button:focus {
   padding-bottom: 2.5rem;
 }
 
+.intro-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.intro-copy {
+  min-width: 0;
+}
+
+.intro-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-visual img {
+  width: 100%;
+  max-width: 280px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(97, 78, 92, 0.16);
+}
+
 .eyebrow {
   margin: 0 0 0.5rem;
   color: #4c3f51;
@@ -428,10 +454,79 @@ p {
   color: var(--text);
 }
 
+.result-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+
+.result-examples {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.result-examples-title {
+  margin: 0 0 0.45rem;
+  font-weight: 700;
+  color: #5b4b5c;
+}
+
+.result-example-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text);
+}
+
+.result-example-list li {
+  margin-bottom: 0.35rem;
+}
+
+.result-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-image {
+  width: 100%;
+  max-width: 220px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(97, 78, 92, 0.14);
+}
+
 .site-footer {
-  text-align: center;
   padding: 1rem 1.5rem 2rem;
-  color: var(--muted);
+}
+
+.footer-banner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.2rem 1.5rem;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  background:
+    linear-gradient(90deg, rgba(56, 34, 62, 0.35), rgba(97, 72, 91, 0.28)),
+    url("https://i.pinimg.com/736x/79/0d/7f/790d7f2631b09ee9ae65a3a8d9877d1e.jpg") center 20% / cover no-repeat;
+  box-shadow: 0 12px 30px rgba(97, 78, 92, 0.16);
+}
+
+.footer-banner p {
+  margin: 0;
 }
 
 @media (max-width: 720px) {
@@ -454,5 +549,13 @@ p {
 
   .image-row {
     grid-template-columns: 1fr;
+  }
+
+  .intro-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-visual img {
+    max-height: 180px;
   }
 }

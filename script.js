@@ -150,7 +150,6 @@ const tryItForm = document.getElementById("tryItForm");
 const tryItInput = document.getElementById("tryItInput");
 const tryItResult = document.getElementById("tryItResult");
 const tryItButton = document.getElementById("tryItButton");
-const modelApiKey = "4042c5c0-84de-11f1-b00c-196a096e2eb379ed01f6-f2e2-4046-8452-c52bff1d210a";
 
 /* Render the category buttons for the gallery */
 function renderCategoryButtons() {
@@ -294,8 +293,8 @@ function setupNavigation() {
   });
 }
 
-/* Use a built-in fallback when the remote model is unavailable */
-function fallbackClassify(text) {
+/* Classify the user's mood using a simple local keyword-based model */
+function classifyMoodLocally(text) {
   const lowerText = text.toLowerCase();
   const rules = [
     { label: "chill", keywords: ["chill", "calm", "cozy", "relax", "rest", "soft", "gentle", "lazy", "peaceful", "comfy", "slow", "sleepy", "unwind"] },
@@ -317,29 +316,13 @@ function fallbackClassify(text) {
   return {
     class_name: topMatch.label,
     confidence: topMatch.score > 0 ? Math.min(95, 70 + topMatch.score * 8) : 65,
-    source: "fallback"
+    source: "local"
   };
 }
 
-/* Classify the user's mood using the machine learning model */
+/* Classify the user's mood locally without calling any external API */
 async function classifyMood(text) {
-  const url = `https://machinelearningforkids.co.uk/api/scratch/${modelApiKey}/classify?data=${encodeURIComponent(text)}`;
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("The remote classifier is unavailable right now.");
-    }
-
-    const data = await response.json();
-    if (!data || !data[0]) {
-      throw new Error("The classifier returned no result.");
-    }
-
-    return { ...data[0], source: "model" };
-  } catch (error) {
-    return fallbackClassify(text);
-  }
+  return classifyMoodLocally(text);
 }
 
 /* Show the classifier result in the Try It section */
@@ -353,17 +336,31 @@ function showTryItResult(label, confidence, source) {
     spooky: "Spooky",
     adventure: "Adventure"
   };
+  const exampleGames = {
+    chill: ["Journey", "Jusant", "Bugsnax", "Stardew Valley", "Coffee Talk 1 and 2", "A Little to the Left", "Unpacking"],
+    action: ["Cuphead", "Ghost of Tsushima", "Astro Bot", "Ratchet and Clank Series", "Cris Tales", "Street Fighter 6", "Tekken Series"],
+    brainy: ["Ace Attorney Series", "The Gardens Between", "Carto", "Superliminal", "Viewfinder", "Chicory: A Colourful Tale"],
+    social: ["Fall Guys", "It Takes Two", "Split Fiction", "Minecraft", "Overcooked Series", "Moving Out", "Totally Reliable Delivery Service", "Phogs", "Cat Quest Series"],
+    spooky: ["Little Nightmares Series", "Reanimal", "The Last of Us I and II", "Ghostwire", "Omori", "Hello Neighbor", "The Dark Pictures Anthology", "Slay the Princess"],
+    adventure: ["Dragon Quest Builders 1 and 2", "The Plucky Squire", "Horizon Zero Dawn", "Final Fantasy Series", "Mana Series", "Outer Wilds"]
+  };
+  const categoryImages = {
+    chill: "https://i.pinimg.com/1200x/23/e1/1d/23e11dcf4c7a60118c48d2c6e1623e7d.jpg",
+    action: "https://i.pinimg.com/736x/39/46/70/394670ebffaa13c20d132b99ca574c7a.jpg",
+    brainy: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99zzMo5IaFvD6rwRbKsa-nryOry5oOKND4Eo-0bNZWw&s=10",
+    social: "https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/fallguys_mediatonic.png",
+    spooky: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY6DRHduQ-MMTyCWiHU5VxGi5z1CSb8z9kmu1GHc0s0KK4TT6s8ou7Gtg&s=10",
+    adventure: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyHyER1ipv6yWzRmjFlJRFgF8SizCyPN4WHi1d5cqRTA&s=10"
+  };
   const friendlyLabel = labelMap[displayLabel] || label || "Unknown";
-  const notice = source === "fallback"
-    ? "The live model wasn’t available, so I used a quick built-in match instead."
+  const exampleList = exampleGames[displayLabel]
+    ? `<div class="result-content"><div class="result-examples"><p class="result-examples-title">Examples:</p><ul class="result-example-list">${exampleGames[displayLabel].map((game) => `<li>${game}</li>`).join("")}</ul></div><div class="result-image-wrap"><img class="result-image" src="${categoryImages[displayLabel] || ""}" alt="${friendlyLabel} category illustration" /></div></div>`
     : "";
 
   tryItResult.innerHTML = `
-    <p class="result-title">You seem like you want:</p>
-    <div class="result-badge">${friendlyLabel}</div>
+    <p class="result-title">You might like <span class="result-badge">${friendlyLabel}</span> games</p>
     <p class="confidence">Confidence: ${confidence}%</p>
-    ${notice ? `<p class="result-note">${notice}</p>` : ""}
-    <p class="result-note">Try browsing the gallery for games that fit this mood.</p>
+    ${exampleList}
   `;
 }
 
@@ -388,7 +385,7 @@ async function handleTryItSubmit(event) {
     tryItResult.innerHTML = `<p class="result-note">Sorry, I couldn’t classify that right now. ${error.message}</p>`;
   } finally {
     tryItButton.disabled = false;
-    tryItButton.textContent = "Classify";
+    tryItButton.textContent = "Enter";
   }
 }
 

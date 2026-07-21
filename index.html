@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>anna's game nook</title>
+  <title>My Model</title>
   <link rel="stylesheet" href="style.css?v=20260720-1" />
 </head>
 <body>
@@ -14,7 +14,7 @@
       <button type="button" data-target="intro">Home</button>
       <button type="button" data-target="about">About Me</button>
       <button type="button" data-target="gallery">Gallery</button>
-      <button type="button" data-target="try-it">Try It</button>
+      <button type="button" data-target="try-it">My Model</button>
     </nav>
   </header>
 
@@ -22,9 +22,16 @@
     <!-- Introduction page -->
     <section id="intro" class="panel active-panel">
       <div class="card intro-card">
-        <p class="eyebrow">hello, i'm anna. welcome to:</p>
-        <h1>my video game nook 🎮</h1>
-        <p>This is a place dedicated to my love for video games!<br>I hope that friends and family can explore the nook and discover games they might like.</p>
+        <div class="intro-layout">
+          <div class="intro-copy">
+            <p class="eyebrow">hello, i'm anna. welcome to:</p>
+            <h1>my video game nook 🎮</h1>
+            <p>This is a place dedicated to my love for video games!<br>I hope that friends and family can explore the nook and discover games they might like.</p>
+          </div>
+          <div class="intro-visual">
+            <img src="https://i.pinimg.com/736x/cc/2d/51/cc2d51ee11d544758c28b29149552946.jpg" alt="Decorative illustration for the home page" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -81,7 +88,7 @@
       <div class="card">
         <div class="section-header">
           <div>
-            <h2>recommendation gallery</h2>
+            <h2>my favorites gallery</h2>
             <p>Here, you can look through my favorite games! Start with 'All' or choose a category.</p>
           </div>
           <div id="categoryButtons" class="category-buttons"></div>
@@ -96,13 +103,13 @@
     <!-- Try It section using the machine learning model -->
     <section id="try-it" class="panel">
       <div class="card">
-        <h2>try it</h2>
+        <h2>try my recommendation model</h2>
         <p>What are you feeling like playing right now?</p>
 
         <form id="tryItForm" class="try-it-form">
           <label class="sr-only" for="tryItInput">Describe the kind of game you want</label>
-          <textarea id="tryItInput" class="try-it-input" placeholder="Try: I want something cozy and low-pressure after a long day."></textarea>
-          <button type="submit" class="try-it-button" id="tryItButton">Classify</button>
+          <textarea id="tryItInput" class="try-it-input" placeholder="Example: I want something cozy and low-pressure after a long day."></textarea>
+          <button type="submit" class="try-it-button" id="tryItButton">Enter</button>
         </form>
 
         <div id="tryItResult" class="try-it-result" aria-live="polite">
@@ -113,7 +120,9 @@
   </main>
 
   <footer class="site-footer">
-    <p>built by anna</p>
+    <div class="footer-banner">
+      <p><strong>built by anna</strong></p>
+    </div>
   </footer>
 
   <script src="script.js?v=20260721-1"></script>
