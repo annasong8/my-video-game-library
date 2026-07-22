@@ -301,7 +301,7 @@ function classifyMoodLocally(text) {
     { label: "action", keywords: ["action", "fast", "intense", "battle", "fight", "combat", "adrenaline", "energy", "thrilling", "wild", "exciting"] },
     { label: "brainy", keywords: ["brainy", "puzzle", "strategy", "logic", "thinking", "solve", "mystery", "clever", "smart", "problem"] },
     { label: "social", keywords: ["social", "friends", "friend", "brother", "sister", "sibling", "daughter", "son", "family", "party", "group", "multiplayer", "co-op", "team", "together", "chat", "fun"] },
-    { label: "spooky", keywords: ["spooky", "scary", "scared", "creepy", "horror", "haunted", "eerie", "dark", "spirit", "nightmare", "halloween"] },
+    { label: "spooky", keywords: ["spooky", "scary", "scared", "scare", "creepy", "horror", "haunted", "eerie", "dark", "spirit", "nightmare", "halloween"] },
     { label: "adventure", keywords: ["adventure", "explore", "exploration", "quest", "journey", "discover", "world", "travel", "fantasy", "wander"] }
   ];
 
